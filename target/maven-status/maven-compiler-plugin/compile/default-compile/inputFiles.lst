@@ -1,0 +1,9 @@
+/home/jonas/Projects/PS-Java-main/src/main/java/br/com/supera/game/store/services/CartService.java
+/home/jonas/Projects/PS-Java-main/src/main/java/br/com/supera/game/store/controllers/CartController.java
+/home/jonas/Projects/PS-Java-main/src/main/java/br/com/supera/game/store/models/Cart.java
+/home/jonas/Projects/PS-Java-main/src/main/java/br/com/supera/game/store/services/ProductService.java
+/home/jonas/Projects/PS-Java-main/src/main/java/br/com/supera/game/store/repositories/CartRepository.java
+/home/jonas/Projects/PS-Java-main/src/main/java/br/com/supera/game/store/repositories/ProductRepository.java
+/home/jonas/Projects/PS-Java-main/src/main/java/br/com/supera/game/store/PsStartApplication.java
+/home/jonas/Projects/PS-Java-main/src/main/java/br/com/supera/game/store/controllers/ProductController.java
+/home/jonas/Projects/PS-Java-main/src/main/java/br/com/supera/game/store/models/Product.java
