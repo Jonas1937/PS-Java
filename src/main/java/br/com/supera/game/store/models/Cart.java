@@ -28,15 +28,17 @@ public class Cart {
     private String checkout;
 
 
-    public void addProduct(Product product){
+    public Product addProduct(Product product){
         products.add(product);
         attCartInfos();
+        return product;
     }
 
-    public void removeProduct(Product product){
+    public Product removeProduct(Product product){
         Product prodToRemove = products.stream().filter(p -> p.id == product.id).findFirst().get();
         products.remove(prodToRemove);
         attCartInfos();
+        return product;
     }
 
     public String checkout(){

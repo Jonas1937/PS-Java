@@ -30,7 +30,7 @@ public class CartService {
         return cart.getCheckout();
     }
 
-    public List<Product> allProducts(){
+    public List<Product> allProducts() {
         return repository.findAll();
     }
 
@@ -40,7 +40,7 @@ public class CartService {
         return productDTO;
     }
 
-    public ProductDTO removeProduct(ProductDTO productDTO){
+    public ProductDTO removeProduct(ProductDTO productDTO) {
         validateProduct(productDTO);
         cart.removeProduct(productDTO.toProduct());
         return productDTO;
@@ -53,17 +53,21 @@ public class CartService {
         }
     }
 
-    public List<Product> getProduct(String method){
+    public List<Product> getProduct(String method) {
         List<Product> allProducts = cart.getProducts();
         List<Product> sortedProducts = allProducts;
-        if(method.toLowerCase() == "price"){
-            sortedProducts = allProducts.stream().sorted((p1, p2) -> p1.price.compareTo(p2.price)).collect(Collectors.toList());
+        if (method.toLowerCase() == "price") {
+            sortedProducts = allProducts.stream().sorted((p1, p2) -> p1.price.compareTo(p2.price))
+                    .collect(Collectors.toList());
         }
-        if(method.toLowerCase() == "score"){
-            sortedProducts = allProducts.stream().sorted((p1, p2) -> String.valueOf(p1.score).compareTo(String.valueOf(p2.score))).collect(Collectors.toList());
+        if (method.toLowerCase() == "score") {
+            sortedProducts = allProducts.stream()
+                    .sorted((p1, p2) -> String.valueOf(p1.score).compareTo(String.valueOf(p2.score)))
+                    .collect(Collectors.toList());
         }
-        if(method.toLowerCase() == "name"){
-            sortedProducts = allProducts.stream().sorted((p1, p2) -> p1.name.compareTo(p2.name)).collect(Collectors.toList());
+        if (method.toLowerCase() == "name") {
+            sortedProducts = allProducts.stream().sorted((p1, p2) -> p1.name.compareTo(p2.name))
+                    .collect(Collectors.toList());
         }
         return sortedProducts;
     }
