@@ -34,16 +34,16 @@ public class CartService {
         return repository.findAll();
     }
 
-    public Cart addProduct(ProductDTO productDTO) {
+    public ProductDTO addProduct(ProductDTO productDTO) {
         validateProduct(productDTO);
         cart.addProduct(productDTO.toProduct());
-        return cart;
+        return productDTO;
     }
 
-    public Cart removeProduct(ProductDTO productDTO){
+    public ProductDTO removeProduct(ProductDTO productDTO){
         validateProduct(productDTO);
         cart.removeProduct(productDTO.toProduct());
-        return cart;
+        return productDTO;
     }
 
     public void validateProduct(ProductDTO productDTO) {
