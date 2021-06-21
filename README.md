@@ -1,40 +1,25 @@
-# Avaliação Java
-
-
-## Descrição
-
-  O teste consiste em construir a camada de serviço de um pseudo ecommerce de games mobile utilizando Java
-
-## Como executar os testes
-  
-  O projeto usa o maven wrapper (mvnw).
-  Para executar os testes de exemplo basta o comando abaixo:
-  ```sh
-  ./mvnw clean test
+## Requisitos:
+    - JDK 1.8
+## Executar Aplicação:
+  -  Para executar a aplicação basta utilizar o seguinte comando no terminal ou prompt de comando:
+```sh
+  mvn spring-boot:run
   ```
+## Instruções
 
-## Requisitos
+*[GET ]*   **./**  "Retorna todos os produtos salvos no banco de dados"
 
-  - Existe um exemplo de carga de banco de dados em memória em [ProductDaoExampleTest.java](./src/test/java/br/com/supera/game/store/ProductDaoExampleTest.java)
-  - Os valores exibidos no checkout (frete, subtotal e total) devem ser calculados dinamicamente
-  - O usuário poderá adicionar e remover produtos do carrinho
-  - O usuário poderá ordenar os produtos por preço, popularidade (score) e ordem alfabética.
-  - A cada produto adicionado, deve-se somar R$ 10,00 ao frete.
-  - Quando o valor dos produtos adicionados ao carrinho for igual ou superior a R$ 250,00, o frete é grátis.
+*[GET ]*   **./valor**  "Retorna os produtos do carrinho na ordem informada, que e definida ao substituir o nome [valor] pelo tipo, que pode ser **name**,**score** e **price**"
 
-## O que iremos avaliar
+*[GET ]*   **./checkout **  "Retorna os dados de check out, que são preço dos produtos, preço do frete, e preço total"
 
-Levaremos em conta os seguintes critérios:
+*[POST ]*  **./ **  "Envia-se um produto pelo Body da requisição, para que este seja adicionado ao carrinho."
 
-  - Cumprimento dos requisitos
-  - Qualidade do projeto de API e fluidez da DX
-  - Organização do código e boas práticas
-  - Domínio das linguagens, bibliotecas e ferramentas utilizadas
-  - Organização dos commits
-  - Escrita e cobertura de testes
+*[DELETE ]*   **./**  "Envia-se um produto pelo Body da requisição, para que este seja removido do carrinho."
 
-## Sobre a entrega
 
-  - A API pode ser HTTP, Restful, WSDL/SOAP, HATEOAS ou gRCP mas deverá ser documentado no [README.md](./README.md) como executar/compilar/empacotar o projeto e quais os endpoints solicitados nos requisitos acima. 
-  - A versão do Java pode ser atualizada para 11 ou 14.
-  - Não existe restrição de framework (EE, Spring, Quarkus etc) mas será melhor avaliado se justificado no [README.md](./README.md) os motivos da decisão.
+## Razoes de usar Spring Boot:
+ 
+ - Rapidez e eficiência em desenvolvimento de API, com varias bibliotecas prontas e auto configuradas, o que facilita e deixa o desenvolvimento ao todo bem menos complexo.
+ - Fácil roteamento, tem mais facilidade em possíveis manutenções futuras.
+
