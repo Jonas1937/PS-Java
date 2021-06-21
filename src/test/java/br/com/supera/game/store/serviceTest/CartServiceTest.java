@@ -7,8 +7,6 @@ import static org.mockito.Mockito.when;
 import java.math.BigDecimal;
 import java.util.Optional;
 
-import javax.persistence.PreUpdate;
-
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
@@ -34,13 +32,15 @@ public class CartServiceTest {
 
     @InjectMocks
     CartService service;
-    @InjectMocks
+
+    @Autowired
     Cart cart;
 
     ProductDTO p = productForTests();
 
     @Test
     public void addNotFoundProduct() {
+        
         when(repository.findById(p.getId())).thenReturn(Optional.ofNullable(null));
 
         assertThrows(ResponseStatusException.class, () -> service.addProduct(productForTests()));
@@ -48,11 +48,30 @@ public class CartServiceTest {
 
     @Test
     public void removeInvalidProduct() {
+        
         when(repository.findById(p.getId())).thenReturn(Optional.ofNullable(null));
 
         assertThrows(ResponseStatusException.class, () -> service.removeProduct(p));
 
     }
+
+    @Test
+    public void addValidProduct(){
+        
+        when(repository.findById(p.getId())).thenReturn(Optional.of(p.toProduct()));
+        
+        assertEquals(p.toProduct(), service.addProduct(p).toProduct());
+    }
+
+    @Test
+    public void removeValidProduct(){
+        
+        when(repository.findById(p.getId())).thenReturn(Optional.of(p.toProduct()));
+        service.addProduct(p);
+
+        assertEquals(p.toProduct(), service.removeProduct(p).toProduct());
+    }
+
 
     private ProductDTO productForTests() {
         ProductDTO p = new ProductDTO();

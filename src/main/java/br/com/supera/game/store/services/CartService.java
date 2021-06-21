@@ -16,14 +16,15 @@ import br.com.supera.game.store.repositories.ProductRepository;
 
 @Service
 public class CartService {
+    
+    private ProductRepository repository;
 
-    private final ProductRepository repository;
-    private final Cart cart;
+    private Cart cart;
 
     @Autowired
-    public CartService(Cart cart, ProductRepository repository) {
+    public CartService(ProductRepository repository) {
         this.repository = repository;
-        this.cart = cart;
+        this.cart = new Cart();
     }
 
     public String checkout() {

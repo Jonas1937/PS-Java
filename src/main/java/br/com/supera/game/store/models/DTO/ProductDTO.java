@@ -20,11 +20,11 @@ public class ProductDTO {
 
     public Product toProduct(){
         Product p = new Product();
-        p.id = id;
-        p.name = name;
-        p.price = price;
-        p.score = score;
-        p.image = image;
+        p.id = this.id;
+        p.name = this.name;
+        p.price = this.price;
+        p.score = this.score;
+        p.image = this.image;
         return p;
     }
 

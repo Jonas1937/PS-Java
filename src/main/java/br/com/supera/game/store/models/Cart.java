@@ -1,6 +1,7 @@
 package br.com.supera.game.store.models;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.context.annotation.Scope;
@@ -23,6 +24,14 @@ public class Cart {
 
     private BigDecimal subTotal;
 
+    public Cart() {
+        this.products = new ArrayList<>();
+        this.frete = BigDecimal.valueOf(0.0D);
+        this.subTotal = BigDecimal.valueOf(0.0D);
+        this.total = BigDecimal.valueOf(0.0D);
+        ;
+    }
+
     private BigDecimal total;
 
     private String checkout;
@@ -34,11 +43,10 @@ public class Cart {
         return product;
     }
 
-    public Product removeProduct(Product product){
+    public void removeProduct(Product product){
         Product prodToRemove = products.stream().filter(p -> p.id == product.id).findFirst().get();
         products.remove(prodToRemove);
         attCartInfos();
-        return product;
     }
 
     public String checkout(){
@@ -51,9 +59,11 @@ public class Cart {
         frete = BigDecimal.valueOf(0);
         total = BigDecimal.valueOf(0);
        
+        if(!products.isEmpty()){
         for (Product product : products) {
             subTotal = subTotal.add(product.price);
         }
+    
        
         if (subTotal.compareTo(PRECO_FRETE_GRATIS) == 1 ||
             subTotal.compareTo(PRECO_FRETE_GRATIS) == 0 ) {
@@ -64,5 +74,6 @@ public class Cart {
             frete = frete.add(BigDecimal.valueOf(products.size() * 10));
         }
         total = subTotal.add(frete).setScale(2, BigDecimal.ROUND_HALF_EVEN);
+    }
     }
 }
