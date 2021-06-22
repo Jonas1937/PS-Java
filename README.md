@@ -9,7 +9,7 @@
 
 *[GET]*   **./api/cart**  "Retorna todos os produtos salvos no banco de dados"
 
-*[GET]*   **./api/cart/?sort=*valor***  "Retorna os produtos do carrinho na ordem informada, que e definida ao substituir o nome *valor* pelo tipo, que pode ser **name**,**score** ou **price**"
+*[GET]*   **./api/cart/?sort=*valor***  "Retorna os produtos do carrinho na ordem informada, que e definida ao substituir o nome **valor** pelo tipo, que pode ser **name**,**score** ou **price**"
 
 *[GET]*   **./api/cart/checkout**  "Retorna os dados de check out, que são preço dos produtos, preço do frete, e preço total"
 
