@@ -60,7 +60,7 @@ public class CartServiceTest {
         
         when(repository.findById(p.getId())).thenReturn(Optional.of(p.toProduct()));
         
-        assertEquals(p.toProduct(), service.addProduct(p).toProduct());
+        assertEquals(p, service.addProduct(p));
     }
 
     @Test
@@ -69,7 +69,7 @@ public class CartServiceTest {
         when(repository.findById(p.getId())).thenReturn(Optional.of(p.toProduct()));
         service.addProduct(p);
 
-        assertEquals(p.toProduct(), service.removeProduct(p).toProduct());
+        assertEquals(p, service.removeProduct(p));
     }
 
 
