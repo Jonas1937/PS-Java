@@ -7,17 +7,17 @@
   ```
 ## Instruções
 
-*[GET]*   **./cart**  "Retorna todos os produtos salvos no banco de dados"
+*[GET]*   **./api/cart**  "Retorna todos os produtos salvos no banco de dados"
 
-*[GET]*   **./cart/valor**  "Retorna os produtos do carrinho na ordem informada, que e definida ao substituir o nome [valor] pelo tipo, que pode ser **name**,**score** ou **price**"
+*[GET]*   **./api/cart/?sort=*valor***  "Retorna os produtos do carrinho na ordem informada, que e definida ao substituir o nome **valor** pelo tipo, que pode ser **name**,**score** ou **price**"
 
-*[GET]*   **./cart/checkout**  "Retorna os dados de check out, que são preço dos produtos, preço do frete, e preço total"
+*[GET]*   **./api/cart/checkout**  "Retorna os dados de check out, que são preço dos produtos, preço do frete, e preço total"
 
-*[POST]*  **./cart/**  "Envia-se um produto pelo Body da requisição, para que este seja adicionado ao carrinho."
+*[POST]*  **./api/cart/**  "Envia-se um produto pelo Body da requisição, para que este seja adicionado ao carrinho."
 
-*[POST]*  **./**  "Envia-se um produto pelo Body da requisição, para que este seja adicionado ao banco de dados"
+*[POST]*  **./api**  "Envia-se um produto pelo Body da requisição, para que este seja adicionado ao banco de dados"
 
-*[DELETE]*   **./cart**  "Envia-se um produto pelo Body da requisição, para que este seja removido do carrinho."
+*[DELETE]*   **./api/cart**  "Envia-se um produto pelo Body da requisição, para que este seja removido do carrinho."
 
 
 ## Razoes de usar Spring Boot:
