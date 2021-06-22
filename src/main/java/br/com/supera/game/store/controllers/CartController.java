@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
@@ -39,8 +40,8 @@ public class CartController {
         return new ResponseEntity<>(service.allProducts(), HttpStatus.OK);
     }
 
-    @GetMapping("{sort}")
-    public ResponseEntity<?> getProductByOrder(@PathVariable(value = "sort") String sort){
+    @GetMapping("/cart/sorting/")
+    public ResponseEntity<?> getProductByOrder(@RequestParam String sort) throws Exception{
         return new ResponseEntity<>(service.getProduct(sort), HttpStatus.OK);
     }
 
