@@ -35,6 +35,10 @@ public class CartService {
         return repository.findAll();
     }
 
+    public Product addProductOnDB(ProductDTO productDTO){
+        return repository.save(productDTO.toProduct());
+    }
+
     public ProductDTO addProduct(ProductDTO productDTO) {
         validateProduct(productDTO);
         cart.addProduct(productDTO.toProduct());

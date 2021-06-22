@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 
 
 @RestController
-@RequestMapping("api/cart")
+@RequestMapping("api/")
 @EnableWebMvc
 public class CartController {
     
@@ -29,11 +29,12 @@ public class CartController {
         this.service = service;
     }
 
-    @GetMapping("checkout")
+    @GetMapping("/cart/checkout")
     public ResponseEntity<?> getCheckout(){
         return new ResponseEntity<>(service.checkout(), HttpStatus.OK);
     }
-    @GetMapping
+
+    @GetMapping("/cart")
     public ResponseEntity<?> getPdt(){
         return new ResponseEntity<>(service.allProducts(), HttpStatus.OK);
     }
@@ -43,13 +44,19 @@ public class CartController {
         return new ResponseEntity<>(service.getProduct(sort), HttpStatus.OK);
     }
 
-    @PostMapping
+    @PostMapping("/cart")
     public ResponseEntity<?> addProductOnCart(@RequestBody ProductDTO product) {
         service.addProduct(product);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
-    @DeleteMapping
+    @PostMapping
+    public ResponseEntity<?> addProductOnDatabase(@RequestBody ProductDTO productDTO){
+        service.addProductOnDB(productDTO);
+        return new ResponseEntity<>(productDTO ,HttpStatus.OK);
+    }
+
+    @DeleteMapping("/cart")
     public ResponseEntity<?> removeProductFromCart(@RequestBody ProductDTO product){
         service.removeProduct(product);
         return new ResponseEntity<>(HttpStatus.OK);
