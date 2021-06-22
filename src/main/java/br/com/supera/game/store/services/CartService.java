@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
 import br.com.supera.game.store.models.Cart;
+import br.com.supera.game.store.models.Checkout;
 import br.com.supera.game.store.models.Product;
 import br.com.supera.game.store.models.DTO.ProductDTO;
 import br.com.supera.game.store.repositories.ProductRepository;
@@ -27,8 +28,8 @@ public class CartService {
         this.cart = new Cart();
     }
 
-    public String checkout() {
-        return cart.getCheckout();
+    public Checkout checkout() {
+        return cart.checkout();
     }
 
     public List<Product> allProducts() {

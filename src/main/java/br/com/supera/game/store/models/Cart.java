@@ -29,12 +29,11 @@ public class Cart {
         this.frete = BigDecimal.valueOf(0.0D);
         this.subTotal = BigDecimal.valueOf(0.0D);
         this.total = BigDecimal.valueOf(0.0D);
-        ;
     }
 
     private BigDecimal total;
 
-    private String checkout;
+    private Checkout checkout;
 
 
     public Product addProduct(Product product){
@@ -49,8 +48,8 @@ public class Cart {
         attCartInfos();
     }
 
-    public String checkout(){
-        checkout = String.format("Valor frete R$: {frete}\nValor produtos R$: {subTotal} \nValor total R$: {total}", frete,subTotal,total);
+    public Checkout checkout(){
+        checkout = new Checkout(frete,subTotal,total);
         return checkout;
     }
 

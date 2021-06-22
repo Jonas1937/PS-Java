@@ -6,21 +6,10 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
-import lombok.Data;
-import lombok.NoArgsConstructor;
 
 @Entity
-@Data
-@NoArgsConstructor
+
 public class Product {
-
-
-   public Product(String name, BigDecimal price, short score, String image) {
-      this.name = name;
-      this.price = price;
-      this.score = score;
-      this.image = image;
-   }
 
    @Id
    @GeneratedValue
